@@ -3,7 +3,7 @@ import random
 import time
 
 # ──── PAGE CONFIG ────
-st.set_page_config(page_title="Growth Mindset Challenge", page_icon="🚀", layout="centered")
+st.set_page_config(page_title="Growth Mindset Challenge 🚀", page_icon="💡", layout="centered")
 
 # ──── STYLING ────
 st.markdown(
@@ -14,7 +14,7 @@ st.markdown(
             font-weight: bold; 
             text-align: center; 
             color: #ffffff;
-            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            background: linear-gradient(to right, #4A00E0, #8E2DE2);
             padding: 10px; 
             border-radius: 10px;
         }
@@ -26,6 +26,7 @@ st.markdown(
             background-color: #F3F4F6;
             padding: 15px;
             border-left: 5px solid #4CAF50;
+            border-radius: 8px;
         }
         .footer {
             text-align: center;
@@ -35,6 +36,11 @@ st.markdown(
             padding: 10px;
             border-radius: 10px;
             margin-top: 20px;
+        }
+        .button {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
         }
     </style>
     """, 
@@ -57,49 +63,53 @@ time.sleep(1)
 
 # ──── USER INPUT: CHALLENGE ────
 st.subheader("💪 What’s Your Challenge Today?")
-challenge = st.text_input("Describe your challenge:")
+challenge = st.text_input("Describe your challenge:", key="challenge")
 
-if challenge:
-    responses = [
-        "💪 Amazing! Overcoming challenges makes you stronger!",
-        "🌟 Great mindset! Every challenge is an opportunity to grow!",
-        "🚀 Keep going! You're on the path to success!"
-    ]
-    st.success(random.choice(responses))
-elif challenge == "":
-    st.warning("⚠️ Please describe your challenge! Your journey matters!")
+if st.button("Enter Challenge"):
+    if challenge:
+        responses = [
+            "💪 Amazing! Overcoming challenges makes you stronger!",
+            "🌟 Great mindset! Every challenge is an opportunity to grow!",
+            "🚀 Keep going! You're on the path to success!"
+        ]
+        st.success(random.choice(responses))
+    else:
+        st.warning("⚠️ Please describe your challenge! Your journey matters!")
 
 # ──── USER INPUT: REFLECTION ────
 st.subheader("📖 Reflection Time")
-reflection = st.text_area("What did you learn today?")
+reflection = st.text_area("What did you learn today?", key="reflection")
 
-if reflection:
-    responses = [
-        "📖 Self-reflection leads to self-improvement! Keep learning!",
-        "🌱 Growth mindset is all about learning from experiences!",
-        "🧠 Your insights are powerful! Keep pushing forward!"
-    ]
-    st.success(random.choice(responses))
-elif reflection == "":
-    st.warning("⚠️ Reflecting helps you grow! Write something about your learning.")
+if st.button("Enter Reflection"):
+    if reflection:
+        responses = [
+            "📖 Self-reflection leads to self-improvement! Keep learning!",
+            "🌱 Growth mindset is all about learning from experiences!",
+            "🧠 Your insights are powerful! Keep pushing forward!"
+        ]
+        st.success(random.choice(responses))
+    else:
+        st.warning("⚠️ Reflecting helps you grow! Write something about your learning.")
 
 # ──── USER INPUT: ACHIEVEMENTS ────
 st.subheader("🏆 Share Your Achievements")
-achievement = st.text_area("What accomplishment are you proud of?")
+achievement = st.text_area("What accomplishment are you proud of?", key="achievement")
 
-if achievement:
-    responses = [
-        "🎉 Congrats! Every step forward is worth celebrating!",
-        "🎊 Your progress is inspiring! Keep up the great work!",
-        "🏆 Well done! Success is built on small wins!"
-    ]
-    st.success(random.choice(responses))
-elif achievement == "":
-    st.warning("⚠️ Acknowledge your achievements! They matter.")
+if st.button("Enter Achievement"):
+    if achievement:
+        responses = [
+            "🎉 Congrats! Every step forward is worth celebrating!",
+            "🎊 Your progress is inspiring! Keep up the great work!",
+            "🏆 Well done! Success is built on small wins!"
+        ]
+        st.success(random.choice(responses))
+    else:
+        st.warning("⚠️ Acknowledge your achievements! They matter.")
 
 # ──── FOOTER ────
 st.markdown(
     '<div class="footer">🔥 Stay focused & keep growing!<br>✨ Made by Zunaira Hussain ✨</div>',
     unsafe_allow_html=True
 )
+
 
